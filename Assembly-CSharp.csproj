@@ -51,6 +51,8 @@
   <ItemGroup>
     <Compile Include="Assets/Scripts/PlayerSet/PlayerMainSet.cs" />
     <Compile Include="Assets/Scripts/ReadOnlyAttribute.cs" />
+    <Compile Include="Assets/Scripts/DamageableObject.cs" />
+    <Compile Include="Assets/Scripts/DamagingObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

@@ -32,11 +32,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/oriolcortes/Desktop/Kairo/Assembly-CSharp-Editor.csproj",
+      "projectUniqueName": "/Users/oriolcortes/Desktop/Fork/Kairo/Assembly-CSharp-Editor.csproj",
       "projectName": "Assembly-CSharp-Editor",
-      "projectPath": "/Users/oriolcortes/Desktop/Kairo/Assembly-CSharp-Editor.csproj",
+      "projectPath": "/Users/oriolcortes/Desktop/Fork/Kairo/Assembly-CSharp-Editor.csproj",
       "packagesPath": "/Users/oriolcortes/.nuget/packages/",
-      "outputPath": "/Users/oriolcortes/Desktop/Kairo/Temp/obj/Assembly-CSharp-Editor/",
+      "outputPath": "/Users/oriolcortes/Desktop/Fork/Kairo/Temp/obj/Assembly-CSharp-Editor/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/oriolcortes/.nuget/NuGet/NuGet.Config"
@@ -51,8 +51,8 @@
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
           "projectReferences": {
-            "/Users/oriolcortes/Desktop/Kairo/Assembly-CSharp.csproj": {
-              "projectPath": "/Users/oriolcortes/Desktop/Kairo/Assembly-CSharp.csproj"
+            "/Users/oriolcortes/Desktop/Fork/Kairo/Assembly-CSharp.csproj": {
+              "projectPath": "/Users/oriolcortes/Desktop/Fork/Kairo/Assembly-CSharp.csproj"
             }
           }
         }

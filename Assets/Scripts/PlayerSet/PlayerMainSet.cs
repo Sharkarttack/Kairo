@@ -3,15 +3,17 @@ using UnityEngine;
 using System.Collections;
 using Unity.VisualScripting;
 
-public class PlayerMainSet : MonoBehaviour
+public class PlayerMainSet : DamageableObject
 {
-    [SerializeField, ReadOnly, Tooltip("The Rigidbody component of the player, nedded to calculate yhe phisycs")] private Rigidbody rb;
-    [SerializeField, ReadOnly, Tooltip("The GameObject that contains the collider triguer of the player atack")] private GameObject dc;
+    private enum Enviroment {Ciudad, Openworld, Combate};
+    [SerializeField, ReadOnly, Tooltip("The Rigidbody component of the player, nedded to calculate the phisycs")] private Rigidbody rb;
+    [SerializeField, ReadOnly, Tooltip("The collider trigguer of the player atack")] private Collider OUT_DAMAGE_TRIGGER;
+    [SerializeField, ReadOnly, Tooltip("The collider trigguer of the player for damaging they")] private Collider IN_DAMAGE_TRIGGER;
+    [SerializeField, ReadOnly, Tooltip("The enviroment ehre the pleyer are in\nif CIUDAD => Player.Walk\nif OPENWORLD => Player.Walks>Player.Run\nif COMBATE => Player.Run")] private Enviroment enviroment = Enviroment.Openworld;
 
     [Header("Player Parameters")]
     [Header("Health Parametres")]
     [SerializeField, Tooltip("Vida maxima que puede llegar a tener el jugador")] private int VIDA_MAX = 2; // Vida maxima del jugador (constante)
-    [SerializeField, ReadOnly, Tooltip("Vida actual que tiene el jugador")] private int vida_actual; // Vida actual del jugador (variable)
     [Header("Movement Parameters")]
     [SerializeField, Tooltip("Velocidad al andar del jugador, se usa en ciudades, al empezar a andar luego de estar parado y al fijar un objetivo en combate")] private float WALK_SPEED; // Velocidad a la que se mueve el jugador quando anda
     [SerializeField, Tooltip("Velocidad al correr del jugador, se usa en combate y fuera de las ciudades, se llega al andar durante unos segundos")] private float RUN_SPEED; // Velocidad a la que se mueve el jugador cunado corre
@@ -26,8 +28,18 @@ public class PlayerMainSet : MonoBehaviour
     [SerializeField, ReadOnly, Tooltip("Verificador de si se ha usado el dash recientemente: \nSi se esta recargando (check activo) no se podra usar el dash")] private bool rechargingDash = false; // Verificador de si se ha usado el dash recientemente
     [Header("Combat Parameters")]
     [SerializeField, Tooltip("Daño base del jugador")] private int BASE_DAMAGE = 1; // Daño base del Jugador (constante)
-    [SerializeField, Tooltip("Lista multiplicadores de daño del combo")] private float[] COMBO_MULTIPLIER_DAMAGE;
     [SerializeField, ReadOnly, Tooltip("Daño que hace el jugador actualmente")] private float damage_actual;  // DAño actual del jugador (variable)
+    [Header("Habilites")]
+    [SerializeField, ReadOnly] private bool INMUNITY_DASH_HABILITY;
+    [SerializeField, ReadOnly] private bool DAMAGING_DASH_HABILITY;
+    [SerializeField, ReadOnly] private bool CHARGED_ATACK_HABILITY;
+    [SerializeField, ReadOnly] private bool COMBO_ATACK_HABILITY;
+    [SerializeField, ReadOnly] private bool VENENO_ATACK_HABILITY;
+    [SerializeField, ReadOnly] private bool LEECHLIVE_ATACK_HABILITY;
+    [SerializeField, ReadOnly] private bool LOCKON_ATACK_HABILITY;
+
+
+
 
     #region Unity methodes
     /// <summary>
@@ -40,12 +52,20 @@ public class PlayerMainSet : MonoBehaviour
         damage_actual = BASE_DAMAGE;
         speed_actual = WALK_SPEED;
         rb = this.GetComponent<Rigidbody>();
-        dc = transform.Find("OutDamage_Trigger").GameObject();
+        OUT_DAMAGE_TRIGGER = transform.Find("OutDamage_Trigger").GameObject().GetComponent<Collider>();
+        IN_DAMAGE_TRIGGER = transform.Find("InDamage_Trigger").GameObject().GetComponent<Collider>();
     }
 
     void FixedUpdate()
     {
-        print("fixed update");
+        if (enviroment == Enviroment.Ciudad)
+        {
+            isRunging = false;
+        }
+        else if (enviroment == Enviroment.Combate)
+        {
+            isRunging = true;
+        }
         if (!isDashing)
         {
             Move();
@@ -108,8 +128,7 @@ public class PlayerMainSet : MonoBehaviour
     /// <param name="context"></param>
     public void OnDash(InputAction.CallbackContext context)
     {
-        print("input dash");
-        if (!rechargingDash)
+        if (!rechargingDash && enviroment != Enviroment.Ciudad)
         {
             StartCoroutine(Dash());
         }
@@ -184,25 +203,4 @@ public class PlayerMainSet : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, target, smooth * Time.deltaTime);
     }
     #endregion Move functions
-
-    #region Combat functions
-    public void OnAttack(InputAction.CallbackContext context)
-    {
-        StartCoroutine(Atack());
-        //Si VenatanCombo = activa => comboPhase++ 
-        //Si VentanaCombo != activa => comboPhase = 1; 
-        //Si comboPhase > 3 => comboPhase = 1
-        //Hacer daño
-        //Start Ventana combo (Timpo para hacer el siguiente golpe)
-    }
-
-
-    private IEnumerator Atack()
-    {
-        yield return new WaitForSeconds(2f);
-    }
-    //Ataque 1 (animacion) => Tiempo => VentanaCombo = Tiempo + Ventana
-    //Ataque 2 (animacion) => Tiempo => VentanaCombo = Tiempo + Ventana
-    //Ataque 3 (animacion) => Timpo => VentanaCombo = Tiempo + Ventana
-    #endregion Combat functions
 }

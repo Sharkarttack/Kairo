@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1471
     height: 943
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Console
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 112}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 115
+  controlID: 112
   draggingID: 0
 --- !u!114 &10
 MonoBehaviour:
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 112}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 64
+  controlID: 65
   draggingID: 0
 --- !u!114 &13
 MonoBehaviour:
@@ -2062,9 +2062,9 @@ MonoBehaviour:
   m_AudioPlay: 0
   m_DebugDrawModesUseInteractiveLightBakingData: 0
   m_Position:
-    m_Target: {x: 0, y: 1, z: -10}
+    m_Target: {x: 0.4565954, y: 0.4210329, z: 1.6272035}
     speed: 2
-    m_Value: {x: 0, y: 1, z: -10}
+    m_Value: {x: 0.4565954, y: 0.4210329, z: 1.6272035}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -2110,13 +2110,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+    m_Target: {x: 0.47416863, y: -0.0330018, z: 0.017789673, w: 0.8796358}
     speed: 2
-    m_Value: {x: -0.7071068, y: 0, z: -0, w: -0.7071068}
+    m_Value: {x: -0.47416863, y: 0.0330018, z: -0.017789673, w: -0.8796358}
   m_Size:
-    m_Target: 12.124355
+    m_Target: 4.2849803
     speed: 2
-    m_Value: 12.124355
+    m_Value: 4.2849803
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -2195,7 +2195,7 @@ MonoBehaviour:
       m_LastClickedID:
         m_Data: 0
       m_ExpandedIDs:
-      - m_Data: -1340
+      - m_Data: -1344
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -2282,19 +2282,19 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: 56
-  m_LastProjectPath: /Users/oriolcortes/Desktop/Kairo
+  m_LastProjectPath: /Users/oriolcortes/Desktop/Fork/Kairo
   m_LockTracker:
     m_IsLocked: 0
   m_LastLocalAssetsSearchArea: 1
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs:
-    - m_Data: 46718
+    - m_Data: 46694
     m_LastClickedID:
-      m_Data: 46718
+      m_Data: 46694
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 46718
+    - m_Data: 46702
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2327,7 +2327,7 @@ MonoBehaviour:
       m_Data: 0
     m_ExpandedIDs:
     - m_Data: 0
-    - m_Data: 46718
+    - m_Data: 46702
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -2354,10 +2354,9 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs:
-    - m_Data: 46218
-    m_LastClickedInstanceID: 46218
-    m_HadKeyboardFocusLastEvent: 1
+    m_SelectedInstanceIDs: []
+    m_LastClickedInstanceID: 0
+    m_HadKeyboardFocusLastEvent: 0
     m_ExpandedInstanceIDs: []
     m_RenameOverlay:
       m_UserAcceptedRename: 0

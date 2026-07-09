@@ -49,6 +49,7 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/6000.3.17f1/Unity.app/Contents/Resources/BuildPipeline/Unity.SourceGenerators/Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/Editor/PlayerEditor.cs" />
     <Compile Include="Assets/Scripts/Editor/ReadOnlyDrawer.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -606,6 +607,10 @@
     </Reference>
     <Reference Include="UnityEditor.VisionOS.Extensions">
       <HintPath>/Applications/Unity/Hub/Editor/6000.3.17f1/PlaybackEngines/VisionOSPlayer/UnityEditor.VisionOS.Extensions.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+      <HintPath>/Applications/Unity/Hub/Editor/6000.3.17f1/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="UnityEditor.Android.Extensions">
